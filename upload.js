@@ -1,3 +1,4 @@
+console.log("upload.js loaded");
 document.getElementById('uploader').onchange = async (e) => {
   const file = e.target.files[0];
   console.log("Selected:", file);
