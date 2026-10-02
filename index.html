@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Uploaded Files</title>
+</head>
+<body>
+  <h2>Uploaded Files</h2>
+  <ul id="fileList"></ul>
+
+  <script>
+    const fileList = document.getElementById('fileList');
+
+    // Load saved file metadata from localStorage
+    const saved = JSON.parse(localStorage.getItem('uploadedFiles') || "[]");
+
+    saved.forEach(item => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = item.url;
+      link.textContent = `${item.name} (${item.size} KB)`;
+      link.target = "_blank";
+      li.appendChild(link);
+      fileList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
